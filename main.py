@@ -51,7 +51,7 @@ async def start(event):
     await show_main_menu(event, welcome_message)
 
 # /help command - Display available commands
-@bot.on(events.NewMessage(pattern='/help'))
+@bot.on(events.NewMessage(pattern='/help|📜 Help'))
 async def help(event):
     help_message = (
         "Here are the commands you can use:\n\n"
@@ -86,13 +86,13 @@ async def generate_sample(event):
     )
 
 # Fun Fact command - Sends a random fun fact
-@bot.on(events.NewMessage(pattern='💬 Fun Fact'))
+@bot.on(events.NewMessage(pattern='/fact|💬 Fun Fact'))
 async def fun_fact(event):
     fact = random.choice(fun_facts)
     await event.respond(f"🎉 Sound Fact:\n\n{fact}", buttons=[[Button.text('🔙 Back to Start')]])
 
 # /about command - Provides information about the bot
-@bot.on(events.NewMessage(pattern='/about'))
+@bot.on(events.NewMessage(pattern='/about|ℹ️ About'))
 async def about(event):
     about_message = (
         "I’m SoundAI Bot, here to help you explore sound-related insights and sample generation! "
