@@ -41,17 +41,6 @@ async def show_main_menu(event, message):
         ]
     )
 
-### Setup commands using set_bot_commands telethon function ###
-async def setup_commands():
-    """Set bot commands for easy access through menu button of bot."""
-    await bot(functions.bots.SetBotCommandsRequest(
-        commands=[
-            types.BotCommand(command="start", description="Start and welcome message"),
-            types.BotCommand(command="help", description="Display all available commands"),
-            types.BotCommand(command="generate", description="Generate a sound sample"),
-        ]
-    ))
-
 ### Command Handlers ###
 
 # /start command - Welcoming the user
@@ -118,7 +107,6 @@ async def back_to_start(event):
 
 # Main function to setup commands and start bot
 async def main():
-    await setup_commands()
     print("Bot is now active and running...")
 
     await bot.run_until_disconnected()
